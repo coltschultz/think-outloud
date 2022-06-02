@@ -1,6 +1,6 @@
 const { Reaction, Thought } = require('../models');
 
-const commentController = {
+const reactionController = {
   // add comment to thought
   addReaction({ params, body }, res) {
     console.log(body);

@@ -18,7 +18,7 @@ const thoughtController = {
   },
 
   // get one thought by id
-  getPizzaById({ req.body }, res) {
+  getThoughtById({ params }, res) {
     Thought.findOne({ _id: req.body.id })
       .populate({
         path: 'reactions',
@@ -40,7 +40,7 @@ const thoughtController = {
   },
 
   // update thought by id
-  updateThought({ req.body, body }, res) {
+  updateThought({ params, body }, res) {
     Thought.findOneAndUpdate({ _id: req.body.id }, body, { new: true })
       .then(dbThoughtData => {
         if (!dbThoughtData) {
@@ -53,7 +53,7 @@ const thoughtController = {
   },
 
   // delete thought
-  deleteThought({ req.body }, res) {
+  deleteThought({ params }, res) {
     Thought.findOneAndDelete({ _id: req.body.id })
       .then(dbThoughtData => res.json(dbThoughtData))
       .catch(err => res.json(err));

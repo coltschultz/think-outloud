@@ -1,6 +1,6 @@
 const { User } = require('../models');
 
-const thoughtController = {
+const userController = {
   // get all users
   getAllUser(req, res) {
     User.find({})
@@ -18,7 +18,7 @@ const thoughtController = {
   },
 
   // get one user by id
-  getUserById({ req.body }, res) {
+  getUserById({ params }, res) {
     User.findOne({ _id: req.body.id })
       .populate({
         path: 'reactions',
@@ -40,7 +40,7 @@ const thoughtController = {
   },
 
   // update user by id
-  updateUser({ req.body, body }, res) {
+  updateUser({ params, body }, res) {
     User.findOneAndUpdate({ _id: req.body.id }, body, { new: true })
       .then(dbUserData => {
         if (!dbUserData) {
@@ -53,11 +53,11 @@ const thoughtController = {
   },
 
   // delete user
-  deleteUser({ req.body }, res) {
+  deleteUser({ params }, res) {
     User.findOneAndDelete({ _id: req.body.id })
       .then(dbUserData => res.json(dbUserData))
       .catch(err => res.json(err));
   }
 };
 
-module.exports = thoughtController;
+module.exports = userController;
