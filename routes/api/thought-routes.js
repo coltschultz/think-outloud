@@ -7,13 +7,13 @@ const {
   deleteThought
 } = require('../../controllers/thought-controller');
 
-// /api/pizzas
+// /api/thoughts
 router
   .route('/')
   .get(getAllThought)
   .post(createThought);
 
-// /api/pizzas/:id
+// /api/thoughts/:id
 router
   .route('/:id')
   .get(getThoughtById)

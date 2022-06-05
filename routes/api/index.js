@@ -3,8 +3,8 @@ const reactionRoutes = require('./reaction-routes');
 const thoughtRoutes = require('./thought-routes');
 const userRoutes = require('./user-routes');
 
-router.use('/comments', reactionRoutes);
-router.use('/thought', thoughtRoutes);
+router.use('/reactions', reactionRoutes);
+router.use('/thoughts', thoughtRoutes);
 router.use('/users', userRoutes);
 
 module.exports = router;

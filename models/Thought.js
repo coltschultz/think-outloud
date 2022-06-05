@@ -3,9 +3,9 @@ const dateFormat = require('../utils/dateFormat');
 
 const ThoughtSchema = new Schema(
   {
-    toughtText: {
+    thoughtText: {
         type: String,
-        required: "Thought text is required",
+        required: "Thought text is required"
       //  @TODO: add validation between 1 and 280 characters
     },
     createdAt: {
